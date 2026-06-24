@@ -99,14 +99,18 @@ Small commercial fit-out (office, clinic, shop). Cares about turnaround time and
 ```
 Home
 ├── Services (overview)
-│   ├── Modular Kitchen
-│   ├── Wardrobes
-│   ├── False Ceiling (Gypsum / Wooden / POP)
-│   ├── TV Units
-│   ├── Pooja Unit
+│   ├── Modular Kitchens
+│   ├── Modular Wardrobes
+│   ├── Lighting
+│   ├── Flooring
+│   ├── Electrical Work
+│   ├── Civil Work
+│   ├── False Ceiling
+│   └── Wall Design & Painting
 │   ├── Full Home Interior
 │   ├── Office Interior
-│   └── Painting & Finishes
+│   ├── Commercial Interior
+│   └── Commercial Ceiling
 ├── Our Work (portfolio)
 │   └── Project Detail (template)
 ├── Process
@@ -344,7 +348,7 @@ Set up a simple monthly dashboard: leads, calls, top services, top traffic sourc
 
 - **Brand & Web Design System v1.0** — full palette, typography specimens, UI components, homepage anatomy, and Google Stitch prompts.
 - **Reference aesthetics:** EarthSlice landing page (olive/sage, full-bleed hero, pill buttons, floating quote card) + Livspace.com (conversion structure).
-- **Service list (full):** Modular kitchen, wardrobes, false ceiling (gypsum/wooden/POP), TV units, pooja unit, vanity, kids' room, master bedroom, full home interior, office interior, Royal Shine painting, wooden flooring, light wiring, curtains & blinds.
+- **Service list (full):** Modular kitchens, modular wardrobes, lighting, flooring, electrical work, civil work, false ceiling, wall design & painting.
 
 ---
 

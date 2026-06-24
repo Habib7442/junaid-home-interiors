@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { assets } from "@/lib/assets";
 import { services, whatsappLink, telLink, business } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,44 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 70,
+      damping: 16,
+      delay: 0.35,
+    },
+  },
+};
 
 export default function Hero() {
   const [formData, setFormData] = useState({
@@ -111,60 +150,82 @@ export default function Hero() {
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Content Column */}
-        <div className="lg:col-span-7 flex flex-col items-start text-white">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="lg:col-span-7 flex flex-col items-start text-white"
+        >
           {/* Trust Rating Badge */}
-          <div className="inline-flex items-center gap-2 bg-[var(--primary-container,#3d4a2a)]/80 text-[var(--on-primary-container,#aab990)] text-xs font-bold px-4 py-2 rounded-full mb-6 backdrop-blur-md border border-[var(--on-primary-container,#aab990)]/15 select-none shadow-md">
+          <motion.div
+            variants={itemVariants}
+            className="inline-flex items-center gap-2 bg-[var(--primary-container,#3d4a2a)]/80 text-[var(--on-primary-container,#aab990)] text-xs font-bold px-4 py-2 rounded-full mb-6 backdrop-blur-md border border-[var(--on-primary-container,#aab990)]/15 select-none shadow-md"
+          >
             <span className="text-amber-400 font-sans">★ ★ ★ ★ ★</span>
             <span className="tracking-wide">
               {business.rating.ratingValue} Rating ({business.rating.reviewCount}+ Google Reviews)
             </span>
-          </div>
+          </motion.div>
 
           {/* Heading */}
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.15] lg:leading-[1.1] mb-6 tracking-tight max-w-[650px]">
+          <motion.h1
+            variants={itemVariants}
+            className="font-heading text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.15] lg:leading-[1.1] mb-6 tracking-tight max-w-[650px]"
+          >
             Beautiful A-to-Z home interiors,{" "}
             <span className="font-heading italic font-light text-[var(--secondary-container,#fda27b)]">
               crafted
             </span>{" "}
             for your home.
-          </h1>
+          </motion.h1>
 
           {/* Subheading */}
-          <p className="font-sans text-stone-200 text-base sm:text-lg lg:text-xl leading-relaxed max-w-[550px] mb-8">
+          <motion.p
+            variants={itemVariants}
+            className="font-sans text-stone-200 text-base sm:text-lg lg:text-xl leading-relaxed max-w-[550px] mb-8"
+          >
             Get factory-finished modular kitchens, customized wardrobes, and complete A-to-Z home interior services delivered in just 45 days.
-          </p>
+          </motion.p>
 
           {/* Trust stats row */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 border-t border-white/20 pt-8 w-full max-w-[550px]">
-            <div>
-              <div className="font-heading text-2xl sm:text-3xl font-semibold text-[var(--secondary-container,#fda27b)]">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col gap-4 sm:grid sm:grid-cols-3 sm:gap-6 border-t border-white/20 pt-8 w-full max-w-[550px]"
+          >
+            <div className="flex items-center gap-4 sm:flex-col sm:items-start">
+              <div className="font-heading text-xl xs:text-2xl sm:text-2xl lg:text-3xl font-semibold text-[var(--secondary-container,#fda27b)] whitespace-nowrap w-[90px] xs:w-[110px] shrink-0 sm:w-auto">
                 45 Days
               </div>
-              <div className="text-xs sm:text-sm text-stone-300 font-medium mt-1">
+              <div className="text-xs sm:text-sm text-stone-300 font-medium border-l border-white/10 pl-4 sm:border-l-0 sm:pl-0 sm:mt-1">
                 Guaranteed Delivery
               </div>
             </div>
-            <div>
-              <div className="font-heading text-2xl sm:text-3xl font-semibold text-[var(--secondary-container,#fda27b)]">
+            <div className="flex items-center gap-4 sm:flex-col sm:items-start">
+              <div className="font-heading text-xl xs:text-2xl sm:text-2xl lg:text-3xl font-semibold text-[var(--secondary-container,#fda27b)] whitespace-nowrap w-[90px] xs:w-[110px] shrink-0 sm:w-auto">
                 10+ Years
               </div>
-              <div className="text-xs sm:text-sm text-stone-300 font-medium mt-1">
+              <div className="text-xs sm:text-sm text-stone-300 font-medium border-l border-white/10 pl-4 sm:border-l-0 sm:pl-0 sm:mt-1">
                 Local Experience
               </div>
             </div>
-            <div>
-              <div className="font-heading text-2xl sm:text-3xl font-semibold text-[var(--secondary-container,#fda27b)]">
+            <div className="flex items-center gap-4 sm:flex-col sm:items-start">
+              <div className="font-heading text-xl xs:text-2xl sm:text-2xl lg:text-3xl font-semibold text-[var(--secondary-container,#fda27b)] whitespace-nowrap w-[90px] xs:w-[110px] shrink-0 sm:w-auto">
                 100%
               </div>
-              <div className="text-xs sm:text-sm text-stone-300 font-medium mt-1">
+              <div className="text-xs sm:text-sm text-stone-300 font-medium border-l border-white/10 pl-4 sm:border-l-0 sm:pl-0 sm:mt-1">
                 Customized Designs
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Right Form Column */}
-        <div className="lg:col-span-5 w-full flex justify-center lg:justify-end">
+        <motion.div
+          variants={cardVariants}
+          initial="hidden"
+          animate="visible"
+          className="lg:col-span-5 w-full flex justify-center lg:justify-end"
+        >
           <Card className="w-full max-w-[430px] rounded-[24px] bg-[var(--surface-container-low,#f8f3ea)] border-0 shadow-[0_20px_50px_rgba(43,42,36,0.18)] p-1">
             <CardHeader className="pt-8 px-6 pb-2">
               <CardTitle className="font-heading text-xl sm:text-2xl font-medium text-[var(--on-surface,#1c1c16)]">
@@ -343,7 +404,7 @@ export default function Hero() {
               )}
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

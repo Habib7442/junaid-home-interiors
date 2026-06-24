@@ -21,6 +21,10 @@
 - [x] Build custom Input, Label, and Select UI components in `components/ui/`.
 - [x] Create interactive Hero component with custom Google reviews badge, trust metrics, and validation form.
 - [x] Mount Hero component on root Home Page (`app/page.tsx`).
+- [x] Build responsive sticky Navbar and common Footer layout wrappers utilizing `public/logo.jpeg` and mount them in `app/layout.tsx`.
+- [x] Perfect logo image rendering in Navbar and Footer, adjusting container aspect-ratio to 1080/712 and object-fit to cover to prevent cropping and eliminate black letterboxing spaces.
+- [x] Optimize trust stats responsiveness on mobile viewports using a flexible stacked layout with elegant vertical dividers to prevent text wrapping.
+- [x] Integrate Framer Motion animations in the Hero section for staggered loading transitions and a polished editorial feel.
 
 ## In Progress
 
@@ -29,7 +33,6 @@
 ## Next Up
 
 - **Unit 01**: Define build plan specification (`contexts/specs/00-build-plan.md`).
-- **Unit 02**: Build sticky header and common footer layout wrappers.
 
 ## Open Questions
 

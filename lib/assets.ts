@@ -9,7 +9,7 @@ export const assets = {
   images: {
     heroBg: "/hero-bg.webp",
     ogImage: "/og-image.jpg",
-    logo: "/logo.png",
+    logo: "/logo.jpeg",
   },
 } as const;
 

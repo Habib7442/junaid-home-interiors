@@ -2,46 +2,25 @@
  * seo.ts — Central SEO & Local-SEO configuration for Junaid Home Interiors
  * --------------------------------------------------------------------------
  * Target stack: Next.js (App Router) + TypeScript.
- *
- * This single module is the source of truth for:
- *   1. Business NAP constants (Name / Address / Phone) — keep IDENTICAL everywhere
- *      (site, footer, Google Business Profile, JustDial). NAP consistency is a
- *      top local-SEO ranking factor.
- *   2. Default + per-page <head> metadata (Next.js `Metadata`).
- *   3. JSON-LD structured data (LocalBusiness, Service, Breadcrumb, FAQ, WebSite).
- *
- * Usage examples are at the bottom of this file.
- *
- * ⚠️ TODO before launch — confirm with the client:
- *   - Exact opening hours (defaults below are assumed).
- *   - Verified stats for aggregateRating (ratingValue + reviewCount).
- *   - Exact map pin / lat-lng from their Google Business Profile.
- *   - Final canonical domain (www vs non-www) and https.
  */
 
 import type { Metadata } from "next";
 
-/* ────────────────────────────────────────────────────────────────────────
- * 1. BUSINESS CONSTANTS (NAP + identity) — single source of truth
- * ──────────────────────────────────────────────────────────────────────── */
-
 export const business = {
   legalName: "Junaid Home Interiors",
   name: "Junaid Home Interiors",
-  tagline: "Turnkey interiors, made in Silchar",
+  tagline: "Complete A-to-Z Home Interior Service",
   description:
     "Junaid Home Interiors is a turnkey home-interior studio in Silchar, Assam, " +
     "established in 2015. We design, manufacture and install modular kitchens, " +
     "wardrobes, false ceilings and complete home interiors — delivered in 45 days.",
   foundingYear: "2015",
 
-  // ── Contact (NAP) ──
   phone: "+917019825509", // E.164 — for tel: links & schema
   phoneDisplay: "+91 70198 25509", // human-readable
   whatsapp: "917019825509", // wa.me number (no +)
-  email: "[email protected]",
+  email: "junaidhomeinteriors7@gmail.com",
 
-  // ── Address ──
   address: {
     streetAddress: "Alitikar Road, Meherpur, Birbal Bazar",
     locality: "Silchar",
@@ -49,58 +28,37 @@ export const business = {
     postalCode: "788015",
     country: "IN",
   },
-
-  // ── Geo (route-level geocode — refine from Google Business Profile) ──
   geo: {
     latitude: 24.7921165,
     longitude: 92.798922,
   },
-
-  // ── Areas served (drives "near me" + regional local SEO) ──
   areaServed: ["Silchar", "Cachar", "Barak Valley", "Assam"],
-
-  // ── Opening hours (TODO: confirm) ──
   openingHours: [
     { days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], opens: "10:00", closes: "19:00" },
-    // Sunday: closed (omit) — update if they open
   ],
-
   priceRange: "₹₹",
-
-  // ── Social / citation profiles (schema `sameAs`) ──
   profiles: {
     instagram: "https://www.instagram.com/junaidhomeinteriors__official/",
     justdial:
       "https://www.justdial.com/Silchar/Junaid-Home-Interiors-Nagatila-Point-Meherpur/9999P3842-3842-230409014517-E7X7_BZDET",
-    // google: "https://www.google.com/maps/place/...", // add Google Business Profile URL
   },
-
-  // ── Ratings (TODO: confirm real numbers before publishing) ──
   rating: {
     ratingValue: "4.9",
     reviewCount: "120",
   },
 } as const;
 
-/* ────────────────────────────────────────────────────────────────────────
- * 2. SITE CONFIG
- * ──────────────────────────────────────────────────────────────────────── */
-
 export const siteConfig = {
-  url: "https://www.junaidhomeinteriors.com", // canonical origin (no trailing slash)
+  url: "https://www.junaidhomeinteriors.com",
   title: "Junaid Home Interiors | Best Interior Designer in Silchar, Assam",
-  titleTemplate: "%s | Junaid Home Interiors", // per-page <title> pattern
+  titleTemplate: "%s | Junaid Home Interiors",
   description: business.description,
   locale: "en_IN",
-  ogImage: "/og-image.jpg", // 1200×630
-  twitterHandle: "", // add if a Twitter/X account exists
+  ogImage: "/og-image.jpg",
+  twitterHandle: "",
 } as const;
 
 export const sameAs: string[] = Object.values(business.profiles).filter(Boolean);
-
-/* ────────────────────────────────────────────────────────────────────────
- * 3. LOCAL KEYWORDS — primary local-intent terms
- * ──────────────────────────────────────────────────────────────────────── */
 
 export const localKeywords: string[] = [
   "interior designer in Silchar",
@@ -116,10 +74,6 @@ export const localKeywords: string[] = [
   "Junaid Home Interiors",
 ];
 
-/* ────────────────────────────────────────────────────────────────────────
- * 4. SERVICES — drives service pages, sitemap, and schema offer catalog
- * ──────────────────────────────────────────────────────────────────────── */
-
 export interface ServiceItem {
   slug: string;
   title: string;
@@ -129,66 +83,62 @@ export interface ServiceItem {
 
 export const services: ServiceItem[] = [
   {
-    slug: "modular-kitchen",
-    title: "Modular Kitchen",
+    slug: "modular-kitchens",
+    title: "Modular Kitchens",
     description:
-      "Custom modular kitchens in Silchar — cabinets, countertops, tall units and " +
-      "soft-close fittings, factory-finished and installed to fit your space.",
+      "Premium modular kitchens — L-shaped, U-shaped, parallel and island designs customized with soft-close fittings and factory finishes.",
     keywords: ["modular kitchen Silchar", "kitchen interior Silchar", "modular kitchen Assam"],
   },
   {
-    slug: "wardrobes",
-    title: "Wardrobes",
+    slug: "modular-wardrobes",
+    title: "Modular Wardrobes",
     description:
-      "Built-in and sliding wardrobes designed for storage and style, custom-made " +
-      "for bedrooms in Silchar and the Barak Valley.",
+      "Built-in sliding and open wardrobes tailored to your bedroom layout with customized racks, drawers, and premium textures.",
     keywords: ["wardrobe design Silchar", "sliding wardrobe Silchar", "bedroom wardrobe Assam"],
+  },
+  {
+    slug: "lighting",
+    title: "Lighting",
+    description:
+      "Modern ambient, task, and accent lighting layouts including false ceiling LED profiles, strip lights, and decorative fixtures.",
+    keywords: ["home lighting design Silchar", "LED profiles design Silchar", "false ceiling lights Silchar"],
+  },
+  {
+    slug: "flooring",
+    title: "Flooring",
+    description:
+      "Premium wooden, vitrified tiles, marble, and vinyl flooring options installed with flawless precision.",
+    keywords: ["flooring installation Silchar", "wooden flooring Silchar", "tiles marble contractor Silchar"],
+  },
+  {
+    slug: "electrical-work",
+    title: "Electrical Work",
+    description:
+      "Complete house wiring, socket relocations, safety switches, and appliance installations managed end-to-end.",
+    keywords: ["house wiring electrician Silchar", "electrical contractor Silchar"],
+  },
+  {
+    slug: "civil-work",
+    title: "Civil Work",
+    description:
+      "Structural masonry, wall alterations, bathroom tiling, and plumbing alterations executed with expert quality.",
+    keywords: ["civil work contractor Silchar", "tiling plumbing work Silchar"],
   },
   {
     slug: "false-ceiling",
     title: "False Ceiling",
     description:
-      "Gypsum, wooden and POP false ceiling designs with integrated lighting — " +
-      "installed by Junaid Home Interiors across Silchar.",
+      "Custom false ceiling designs in Gypsum, Wooden, and POP finishes with integrated cove lighting and layouts.",
     keywords: ["false ceiling Silchar", "POP design Silchar", "gypsum ceiling Silchar"],
   },
   {
-    slug: "tv-units",
-    title: "TV Units",
-    description: "Modern TV units and entertainment walls with smart storage and cable management.",
-    keywords: ["tv unit design Silchar", "tv cabinet Silchar"],
-  },
-  {
-    slug: "pooja-unit",
-    title: "Pooja Unit",
-    description: "Bespoke pooja units that create a serene, dedicated space for worship at home.",
-    keywords: ["pooja unit design Silchar", "mandir design Silchar"],
-  },
-  {
-    slug: "full-home-interior",
-    title: "Full Home Interior",
+    slug: "wall-design-painting",
+    title: "Wall Design & Painting",
     description:
-      "Complete turnkey home interiors in Silchar — from 2D/3D design to delivery and " +
-      "installation in 45 days.",
-    keywords: ["home interiors Silchar", "turnkey interiors Silchar", "full home interior Assam"],
-  },
-  {
-    slug: "office-interior",
-    title: "Office Interior",
-    description: "Productive, professional office and commercial interiors designed and built end to end.",
-    keywords: ["office interior design Silchar", "commercial interior Silchar"],
-  },
-  {
-    slug: "painting-finishes",
-    title: "Painting & Finishes",
-    description: "Premium wall painting and finishes, including high-sheen washable Royal Shine paint.",
-    keywords: ["wall painting Silchar", "home painting service Silchar"],
+      "Flawless wall finishing services from putty applications to texture painting and washable royal shine paints.",
+    keywords: ["wall painting Silchar", "home painting service Silchar", "texture painting Silchar"],
   },
 ];
-
-/* ────────────────────────────────────────────────────────────────────────
- * 5. DEFAULT METADATA (applied in app/layout.tsx)
- * ──────────────────────────────────────────────────────────────────────── */
 
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -240,18 +190,13 @@ export const defaultMetadata: Metadata = {
     apple: "/favicons/apple-touch-icon.png",
   },
   manifest: "/favicons/site.webmanifest",
-  // verification: { google: "GOOGLE_SEARCH_CONSOLE_TOKEN" }, // add after Search Console setup
   category: "Interior Design",
 };
-
-/* ────────────────────────────────────────────────────────────────────────
- * 6. PER-PAGE METADATA HELPER
- * ──────────────────────────────────────────────────────────────────────── */
 
 export interface PageMetaInput {
   title: string;
   description?: string;
-  path?: string; // e.g. "/services/modular-kitchen"
+  path?: string;
   image?: string;
   keywords?: string[];
   noindex?: boolean;
@@ -290,17 +235,9 @@ export function buildMetadata({
   };
 }
 
-/* ────────────────────────────────────────────────────────────────────────
- * 7. JSON-LD STRUCTURED DATA GENERATORS
- *    Inject the returned object via:
- *    <script type="application/ld+json"
- *            dangerouslySetInnerHTML={{ __html: JSON.stringify(obj) }} />
- * ──────────────────────────────────────────────────────────────────────── */
-
 const ABSOLUTE = (path = "") => `${siteConfig.url}${path}`;
 const BUSINESS_ID = ABSOLUTE("/#business");
 
-/** Primary LocalBusiness node — the heart of local SEO. */
 export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
@@ -313,7 +250,7 @@ export function localBusinessJsonLd() {
     telephone: business.phone,
     email: business.email,
     image: ABSOLUTE(siteConfig.ogImage),
-    logo: ABSOLUTE("/logo.png"),
+    logo: ABSOLUTE("/logo.jpeg"),
     priceRange: business.priceRange,
     foundingDate: business.foundingYear,
     currenciesAccepted: "INR",
@@ -355,7 +292,6 @@ export function localBusinessJsonLd() {
   };
 }
 
-/** WebSite node (enables sitelinks search box where eligible). */
 export function websiteJsonLd() {
   return {
     "@context": "https://schema.org",
@@ -369,7 +305,6 @@ export function websiteJsonLd() {
   };
 }
 
-/** Breadcrumb trail — pass ordered [{ name, path }]. */
 export interface BreadcrumbItem {
   name: string;
   path: string;
@@ -387,7 +322,6 @@ export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
   };
 }
 
-/** Service node for an individual service page. */
 export function serviceJsonLd(service: ServiceItem) {
   return {
     "@context": "https://schema.org",
@@ -401,7 +335,6 @@ export function serviceJsonLd(service: ServiceItem) {
   };
 }
 
-/** FAQ node — great for local "People also ask" visibility. */
 export interface FaqItem {
   question: string;
   answer: string;
@@ -418,10 +351,6 @@ export function faqJsonLd(faqs: FaqItem[]) {
   };
 }
 
-/* ────────────────────────────────────────────────────────────────────────
- * 8. CONVERSION LINK HELPERS (referenced by CTAs)
- * ──────────────────────────────────────────────────────────────────────── */
-
 export const telLink = `tel:${business.phone}`;
 
 export function whatsappLink(
@@ -429,10 +358,6 @@ export function whatsappLink(
 ) {
   return `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(message)}`;
 }
-
-/* ────────────────────────────────────────────────────────────────────────
- * Internal util
- * ──────────────────────────────────────────────────────────────────────── */
 
 function dayName(short: string): string {
   const map: Record<string, string> = {
@@ -446,56 +371,3 @@ function dayName(short: string): string {
   };
   return map[short] ?? short;
 }
-
-/* ══════════════════════════════════════════════════════════════════════════
- * USAGE EXAMPLES (Next.js App Router)
- * ══════════════════════════════════════════════════════════════════════════
- *
- * ── app/layout.tsx ──────────────────────────────────────────────────────
- *   import { defaultMetadata, localBusinessJsonLd, websiteJsonLd } from "@/seo";
- *
- *   export const metadata = defaultMetadata;
- *
- *   export default function RootLayout({ children }: { children: React.ReactNode }) {
- *     return (
- *       <html lang="en-IN">
- *         <body>
- *           {children}
- *           <script
- *             type="application/ld+json"
- *             dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
- *           />
- *           <script
- *             type="application/ld+json"
- *             dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
- *           />
- *         </body>
- *       </html>
- *     );
- *   }
- *
- * ── app/services/[slug]/page.tsx ────────────────────────────────────────
- *   import { services, buildMetadata, serviceJsonLd, breadcrumbJsonLd } from "@/seo";
- *
- *   export function generateStaticParams() {
- *     return services.map((s) => ({ slug: s.slug }));
- *   }
- *
- *   export function generateMetadata({ params }: { params: { slug: string } }) {
- *     const s = services.find((x) => x.slug === params.slug)!;
- *     return buildMetadata({
- *       title: `${s.title} in Silchar`,
- *       description: s.description,
- *       path: `/services/${s.slug}`,
- *       keywords: s.keywords,
- *     });
- *   }
- *
- *   // In the component, render serviceJsonLd(s) and breadcrumbJsonLd([...]) as <script> tags.
- *
- * ── Conversion CTAs ─────────────────────────────────────────────────────
- *   import { telLink, whatsappLink } from "@/seo";
- *   <a href={telLink}>Call us</a>
- *   <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">WhatsApp</a>
- *
- * ════════════════════════════════════════════════════════════════════════ */
