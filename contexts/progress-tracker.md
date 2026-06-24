@@ -25,6 +25,8 @@
 - [x] Perfect logo image rendering in Navbar and Footer, adjusting container aspect-ratio to 1080/712 and object-fit to cover to prevent cropping and eliminate black letterboxing spaces.
 - [x] Optimize trust stats responsiveness on mobile viewports using a flexible stacked layout with elegant vertical dividers to prevent text wrapping.
 - [x] Integrate Framer Motion animations in the Hero section for staggered loading transitions and a polished editorial feel.
+- [x] Build and mount ServicesGrid component (`components/home/ServicesGrid.tsx`) showing the 8 core residential services with animations and Lucide icons.
+- [x] Build and mount WhyChooseUs component (`components/home/WhyChooseUs.tsx`) outlining the 4 primary differentiators (Timeline Guarantee, Factory Finishing, Next-Day Quotations, On-Site Designer Consultations) with clean entrance animations.
 
 ## In Progress
 
