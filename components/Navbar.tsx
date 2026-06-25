@@ -82,47 +82,53 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`font-sans text-sm font-semibold tracking-wide transition-colors hover:text-[var(--secondary-container,#fda27b)] py-2 ${
-                isActive(link.href)
-                  ? "text-[var(--secondary-container,#fda27b)] border-b-2 border-[var(--secondary-container,#fda27b)]"
-                  : "text-stone-200"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-8 font-medium">
+          <Link
+            href="/services"
+            className={`font-sans text-sm font-semibold tracking-wide transition-colors hover:text-[var(--secondary-container,#fda27b)] py-2 ${
+              isActive("/services")
+                ? "text-[var(--secondary-container,#fda27b)] border-b-2 border-[var(--secondary-container,#fda27b)]"
+                : "text-stone-200"
+            }`}
+          >
+            Services
+          </Link>
+          <Link
+            href="/our-work"
+            className={`font-sans text-sm font-semibold tracking-wide transition-colors hover:text-[var(--secondary-container,#fda27b)] py-2 ${
+              isActive("/our-work")
+                ? "text-[var(--secondary-container,#fda27b)] border-b-2 border-[var(--secondary-container,#fda27b)]"
+                : "text-stone-200"
+            }`}
+          >
+            Our Work
+          </Link>
+          <Link
+            href="/process"
+            className={`font-sans text-sm font-semibold tracking-wide transition-colors hover:text-[var(--secondary-container,#fda27b)] py-2 ${
+              isActive("/process")
+                ? "text-[var(--secondary-container,#fda27b)] border-b-2 border-[var(--secondary-container,#fda27b)]"
+                : "text-stone-200"
+            }`}
+          >
+            Process
+          </Link>
+          <Link
+            href="/about"
+            className={`font-sans text-sm font-semibold tracking-wide transition-colors hover:text-[var(--secondary-container,#fda27b)] py-2 ${
+              isActive("/about")
+                ? "text-[var(--secondary-container,#fda27b)] border-b-2 border-[var(--secondary-container,#fda27b)]"
+                : "text-stone-200"
+            }`}
+          >
+            About
+          </Link>
         </nav>
 
         {/* Desktop Right CTA Elements */}
         <div className="hidden lg:flex items-center gap-6">
-          <a
-            href={telLink}
-            className="font-sans text-sm font-semibold text-stone-200 hover:text-[var(--secondary-container,#fda27b)] transition-colors flex items-center gap-2"
-          >
-            {/* Phone Icon */}
-            <svg
-              className="h-4 w-4 text-[var(--secondary-container,#fda27b)]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2.5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              />
-            </svg>
-            {business.phoneDisplay}
-          </a>
-
           <Link href="/contact">
-            <Button className="rounded-full bg-[var(--secondary,#914b2a)] hover:bg-[var(--secondary-container,#fda27b)] hover:text-[var(--on-secondary-container,#773718)] text-white text-xs font-bold tracking-wider uppercase px-5 py-2.5 transition-all shadow-md">
+            <Button className="rounded-full bg-[var(--secondary,#914b2a)] hover:bg-[var(--secondary-container,#fda27b)] hover:text-[var(--on-secondary-container,#773718)] text-white text-xs font-bold tracking-wider uppercase px-6 py-3 transition-all shadow-md active:scale-95 duration-200">
               Book Free Consultation
             </Button>
           </Link>
