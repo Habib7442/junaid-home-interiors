@@ -38,6 +38,7 @@
 - [x] Batch convert 242 WhatsApp project images in `public/works` directory to WebP format at 80% quality, reducing bundle footprint and optimizing image loading performance.
 - [x] Build and mount the `FeaturedWork` portfolio component, removing category filters and card/lightbox text overlays (titles, addresses) to deliver a clean visual-first aesthetic.
 - [x] Create and integrate the `/contact` page with a consultation booking form, validation handlers, direct click-to-call, email channels, and local business JSON-LD schema markup.
+- [x] Create and integrate the `/about` page with a complete brand narrative, statistics showcase, key pillars, and localized business JSON-LD schema tags for search crawl optimization.
 
 ## In Progress
 
