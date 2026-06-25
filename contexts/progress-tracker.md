@@ -29,6 +29,11 @@
 - [x] Build and mount WhyChooseUs component (`components/home/WhyChooseUs.tsx`) outlining the 4 primary differentiators (Timeline Guarantee, Factory Finishing, Next-Day Quotations, On-Site Designer Consultations) with clean entrance animations.
 - [x] Generate mock design assets using image generation tool, convert them to WebP format, and map them in the assets registry file (`lib/assets.ts`).
 - [x] Build and mount the `BudgetShowcase` component (`components/home/BudgetShowcase.tsx`) just below the Hero section, rendering horizontal scrollable 3D-tilt cards (2BHK, 3BHK, modular kitchens, bedrooms) and launching a custom 2-step WhatsApp modal inquiry form upon click.
+- [x] Refactor modal form to make Email ID optional, suppress hydration mismatch warnings on html/body tags, and prevent layout overlapping in modal header.
+- [x] Implement path-specific transparent-to-solid fixed Navbar transitions dependent on window scroll coordinates, and adjust Hero section padding accordingly.
+- [x] Establish design tokens for distinct homepage section backgrounds (--surface-lavender for BudgetShowcase, --surface-sage for WhyChooseUs) and update design documents to officially enforce distinct creative backgrounds per section.
+- [x] Remove transparency from outline/secondary buttons on the homepage, explicitly defining solid white backgrounds for the "View All Services" button and modal "Back" button to improve contrast.
+- [x] Generate Google Search Console assets, including dynamic Next.js routes config sitemap (`app/sitemap.ts`), crawlers rule sheet (`app/robots.ts`), and verification metadata placeholders (`lib/seo.ts`).
 
 ## In Progress
 

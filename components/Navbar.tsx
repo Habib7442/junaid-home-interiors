@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -10,7 +10,24 @@ import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 15) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    // Initialize state
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -30,8 +47,17 @@ export default function Navbar() {
     return pathname.startsWith(href);
   };
 
+  const isHomePage = pathname === "/";
+  const showTransparent = isHomePage && !isScrolled;
+
   return (
-    <header className="sticky top-0 z-50 w-full bg-[var(--primary,#273316)] text-white shadow-md border-b border-[var(--primary-container,#3d4a2a)]">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 text-[var(--surface,#fdf9ef)] ${
+        showTransparent
+          ? "bg-transparent shadow-none border-b border-transparent"
+          : "bg-[var(--primary,#273316)] shadow-md border-b border-[var(--primary-container,#3d4a2a)]"
+      }`}
+    >
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo & Wordmark */}
         <Link href="/" className="flex items-center gap-3 group">

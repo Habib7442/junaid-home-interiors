@@ -190,6 +190,9 @@ export const defaultMetadata: Metadata = {
     apple: "/favicons/apple-touch-icon.png",
   },
   manifest: "/favicons/site.webmanifest",
+  verification: {
+    google: "YOUR_GOOGLE_SITE_VERIFICATION_CODE", // Replace with your verification code from Google Search Console
+  },
   category: "Interior Design",
 };
 

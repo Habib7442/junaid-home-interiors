@@ -123,6 +123,7 @@ The palette is rooted in nature, moving away from sterile whites and greys in fa
 - **Secondary (Terracotta):** Reserved for highlights, links, and "eyebrow" labels. Use this sparingly to maintain its impact.
 - **Background & Surfaces:** The transition from the warm cream background (#F6F2E9) to soft bone surfaces (#FBF9F3) creates a subtle depth without needing harsh lines.
 - **Functional Tints:** Soft Sage and Clay are used for badges, tags, or informational callouts to provide variety while staying within the organic theme.
+- **Distinct Section Backgrounds:** To keep the homepage creative and rich, each major content section utilizes a distinct background color (e.g. Lavender, Sage Green, Warm Cream, etc.) that complements the overall organic warm-minimalist aesthetic.
 
 ## Typography
 

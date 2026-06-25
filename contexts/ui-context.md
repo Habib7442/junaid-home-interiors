@@ -22,6 +22,8 @@ All styling properties must use these variables mapped from Junaid's Design Syst
 | Surface Low | `--surface-container-low` | `#f8f3ea` | Bone/Cream tier 1 surface layering |
 | Surface Mid | `--surface-container` | `#f2ede4` | Bone/Cream tier 2 surface layering |
 | Surface High | `--surface-container-high` | `#ece8de` | Bone/Cream tier 3 surface layering |
+| Section Lavender | `--surface-lavender` | `#f3f0fc` | Soft Lavender for creative section separation |
+| Section Sage | `--surface-sage` | `#ebf1e5` | Soft organic Sage Green for creative section separation |
 | Text Primary | `--on-surface` | `#1c1c16` | Espresso near-black for body copy |
 | Text Muted | `--on-surface-variant` | `#45483f` | Stone grey for secondary details |
 | Border Default | `--outline-variant` | `#c6c8bb` | Thin border tint separating layers |
@@ -75,6 +77,7 @@ Organic softness dictates generous curves for interactable containers and slight
 - **Header**: Sticky layout container, thin boundary border, primary logo link, quick navigation links, and consultation action CTA.
 - **Sticky Footer & Overlay**: Mobile overlay displaying click-to-call, WhatsApp link, and quote actions.
 - **Masonry Grid**: Clean portfolio structures that adjust layout count fluidly across desktop, tablet, and mobile.
+- **Distinct Section Backgrounds**: Each homepage section must feature a distinct, curated background color (e.g. Lavender, Sage Green, Warm Cream) to provide a rich, visually engaging storytelling experience and avoid flat layout repetition.
 
 ## Icons
 

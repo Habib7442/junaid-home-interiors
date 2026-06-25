@@ -131,7 +131,7 @@ export default function ServicesGrid() {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-[var(--outline-variant,#c6c8bb)] font-sans text-sm font-semibold text-[var(--primary,#273316)] hover:bg-[var(--primary,#273316)] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-[var(--outline-variant,#c6c8bb)] bg-white font-sans text-sm font-semibold text-[var(--primary,#273316)] hover:bg-[var(--primary,#273316)] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm"
             >
               View All Services
               <ArrowRight className="h-4 w-4" />

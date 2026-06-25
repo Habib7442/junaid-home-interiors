@@ -53,9 +53,9 @@ const cardVariants: Variants = {
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 bg-[var(--surface-container-low,#f8f3ea)]">
+    <section className="py-20 bg-surface-sage">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="font-sans text-[11px] font-bold text-[var(--secondary,#914b2a)] tracking-[0.15em] uppercase block mb-3">
@@ -105,7 +105,7 @@ export default function WhyChooseUs() {
             );
           })}
         </motion.div>
-        
+
       </div>
     </section>
   );

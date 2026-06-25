@@ -134,7 +134,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[92vh] lg:min-h-[750px] w-full flex items-center overflow-hidden py-16 lg:py-24">
+    <section className="relative min-h-[92vh] lg:min-h-[750px] w-full flex items-center overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -307,7 +307,7 @@ export default function Hero() {
                     <Input
                       id="name"
                       name="name"
-                      placeholder="e.g. Nadia Ahmed"
+                      placeholder="Enter your name"
                       value={formData.name}
                       onChange={handleChange}
                       aria-invalid={!!errors.name}
@@ -331,7 +331,7 @@ export default function Hero() {
                         name="phone"
                         type="tel"
                         maxLength={10}
-                        placeholder="70198 25509"
+                        placeholder="Enter 10-digit number"
                         value={formData.phone}
                         onChange={handleChange}
                         className="pl-12"

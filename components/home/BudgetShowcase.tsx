@@ -106,9 +106,8 @@ export default function BudgetShowcase() {
     const nextErrors: Record<string, string> = {};
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) {
-      nextErrors.email = "Please enter your email ID";
-    } else if (!emailRegex.test(formData.email.trim())) {
+    const emailVal = formData.email.trim();
+    if (emailVal && !emailRegex.test(emailVal)) {
       nextErrors.email = "Enter a valid email address";
     }
 
@@ -119,14 +118,14 @@ export default function BudgetShowcase() {
 
     // Success State & WhatsApp Integration
     setIsSuccess(true);
-    
+
     // Construct message details for WhatsApp
     const message = `Hi Junaid Home Interiors! I want to explore design ideas and budget estimates for my *${selectedSpace}* space.
 
 My Details:
 👤 *Name:* ${formData.name.trim()}
 📞 *Phone:* +91 ${formData.phone.trim()}
-📧 *Email:* ${formData.email.trim()}
+📧 *Email:* ${formData.email.trim() || "Not provided"}
 💬 *WhatsApp Updates:* ${formData.whatsAppUpdates ? "Yes, please" : "No"}
 
 Please get in touch with me soon!`;
@@ -142,9 +141,9 @@ Please get in touch with me soon!`;
   };
 
   return (
-    <section className="py-20 bg-[var(--background,#fdf9ef)] border-b border-[var(--outline-variant,#c6c8bb)]/20">
+    <section className="py-20 bg-surface-lavender border-b border-[var(--outline-variant,#c6c8bb)]/20">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-xl">
@@ -177,7 +176,7 @@ Please get in touch with me soon!`;
             >
               <CardContainer containerClassName="py-0 w-full" className="w-full">
                 <CardBody className="bg-stone-900 relative group/card border border-[var(--outline-variant,#c6c8bb)]/25 hover:shadow-2xl hover:shadow-[var(--primary,#273316)]/[0.12] w-full h-[360px] sm:h-[420px] rounded-[28px] overflow-hidden flex flex-col justify-between p-6">
-                  
+
                   {/* Background Image inside CardItem */}
                   <CardItem translateZ="-20" className="absolute inset-0 z-0 w-full h-full select-none">
                     <Image
@@ -224,7 +223,7 @@ Please get in touch with me soon!`;
       <AnimatePresence>
         {isOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            
+
             {/* Backdrop Layer */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -242,15 +241,31 @@ Please get in touch with me soon!`;
               transition={{ type: "spring", duration: 0.4 }}
               className="relative w-full max-w-[430px] rounded-[32px] bg-white shadow-2xl p-8 z-10 overflow-hidden border border-stone-100"
             >
-              
-              {/* Close Button */}
-              <button
-                onClick={closeModal}
-                className="absolute top-6 right-6 p-1.5 rounded-full hover:bg-stone-100 text-stone-400 hover:text-stone-800 transition-colors"
-                aria-label="Close modal"
-              >
-                <X className="h-5 w-5" />
-              </button>
+
+              {/* Top Header Row for Close Button & Step Counter */}
+              <div className="flex justify-between items-center mb-6 select-none">
+                {/* Close button on the left */}
+                <button
+                  onClick={closeModal}
+                  className="p-1.5 rounded-full hover:bg-stone-100 text-stone-400 hover:text-stone-800 transition-colors"
+                  aria-label="Close modal"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+
+                {/* Step indicator on the right (only show if not in success state) */}
+                {!isSuccess && (
+                  <div className="flex items-center gap-3">
+                    <span className="font-sans text-[10px] text-stone-400 font-bold uppercase tracking-widest">
+                      Step {step} of 2
+                    </span>
+                    <div className="flex items-center gap-1">
+                      <div className={`h-1.5 w-1.5 rounded-full transition-all duration-350 ${step === 1 ? "bg-[var(--secondary,#914b2a)]" : "bg-stone-200"}`} />
+                      <div className={`h-1.5 w-1.5 rounded-full transition-all duration-350 ${step === 2 ? "bg-[var(--secondary,#914b2a)]" : "bg-stone-200"}`} />
+                    </div>
+                  </div>
+                )}
+              </div>
 
               {/* Success View */}
               {isSuccess ? (
@@ -266,21 +281,9 @@ Please get in touch with me soon!`;
                   </p>
                 </div>
               ) : (
-                
+
                 /* Form View */
                 <div>
-                  
-                  {/* Form Steps Header */}
-                  <div className="flex justify-between items-center mb-6">
-                    <span className="font-sans text-[10px] text-stone-400 font-bold uppercase tracking-widest">
-                      Step {step} of 2
-                    </span>
-                    <div className="flex items-center gap-1">
-                      {/* Step circles */}
-                      <div className={`h-2 w-2 rounded-full ${step === 1 ? "bg-[var(--secondary,#914b2a)]" : "bg-stone-200"}`} />
-                      <div className={`h-2 w-2 rounded-full ${step === 2 ? "bg-[var(--secondary,#914b2a)]" : "bg-stone-200"}`} />
-                    </div>
-                  </div>
 
                   {/* Step 1 Content */}
                   <AnimatePresence mode="wait">
@@ -300,7 +303,7 @@ Please get in touch with me soon!`;
                         </p>
 
                         <form onSubmit={handleNext} className="space-y-4">
-                          
+
                           {/* Name Input */}
                           <div className="space-y-2">
                             <label htmlFor="modal-name" className="font-sans text-xs font-bold text-stone-700 uppercase tracking-wide">
@@ -311,14 +314,13 @@ Please get in touch with me soon!`;
                                 id="modal-name"
                                 name="name"
                                 type="text"
-                                placeholder="Habib"
+                                placeholder="Enter your name"
                                 value={formData.name}
                                 onChange={handleInputChange}
-                                className={`w-full h-12 px-4 rounded-[14px] border bg-stone-50 text-sm font-sans focus:outline-none focus:bg-white transition-all ${
-                                  errors.name
+                                className={`w-full h-12 px-4 rounded-[14px] border bg-stone-50 text-sm font-sans focus:outline-none focus:bg-white transition-all ${errors.name
                                     ? "border-red-500 focus:ring-1 focus:ring-red-500"
                                     : "border-stone-200 focus:border-[var(--primary,#273316)] focus:ring-1 focus:ring-[var(--primary,#273316)]"
-                                }`}
+                                  }`}
                               />
                               {formData.name.trim().length >= 2 && !errors.name && (
                                 <Check className="absolute right-4 top-3.5 h-5 w-5 text-emerald-600" />
@@ -345,14 +347,13 @@ Please get in touch with me soon!`;
                                 name="phone"
                                 type="tel"
                                 maxLength={10}
-                                placeholder="91123 45678"
+                                placeholder="Enter 10-digit number"
                                 value={formData.phone}
                                 onChange={handleInputChange}
-                                className={`w-full h-12 px-4 rounded-r-[14px] border bg-stone-50 text-sm font-sans focus:outline-none focus:bg-white transition-all ${
-                                  errors.phone
+                                className={`w-full h-12 px-4 rounded-r-[14px] border bg-stone-50 text-sm font-sans focus:outline-none focus:bg-white transition-all ${errors.phone
                                     ? "border-red-500 focus:ring-1 focus:ring-red-500"
                                     : "border-stone-200 focus:border-[var(--primary,#273316)] focus:ring-1 focus:ring-[var(--primary,#273316)]"
-                                }`}
+                                  }`}
                               />
                               {/^[6-9]\d{9}$/.test(formData.phone) && !errors.phone && (
                                 <Check className="absolute right-4 top-3.5 h-5 w-5 text-emerald-600" />
@@ -389,7 +390,7 @@ Please get in touch with me soon!`;
                         </form>
                       </motion.div>
                     ) : (
-                      
+
                       /* Step 2 Content */
                       <motion.div
                         key="step-2"
@@ -406,11 +407,11 @@ Please get in touch with me soon!`;
                         </p>
 
                         <form onSubmit={handleSubmit} className="space-y-5">
-                          
+
                           {/* Email Input */}
                           <div className="space-y-2">
                             <label htmlFor="modal-email" className="font-sans text-xs font-bold text-stone-700 uppercase tracking-wide">
-                              Email ID
+                              Email ID (Optional)
                             </label>
                             <div className="relative">
                               <input
@@ -420,11 +421,10 @@ Please get in touch with me soon!`;
                                 placeholder="name@example.com"
                                 value={formData.email}
                                 onChange={handleInputChange}
-                                className={`w-full h-12 px-4 rounded-[14px] border bg-stone-50 text-sm font-sans focus:outline-none focus:bg-white transition-all ${
-                                  errors.email
+                                className={`w-full h-12 px-4 rounded-[14px] border bg-stone-50 text-sm font-sans focus:outline-none focus:bg-white transition-all ${errors.email
                                     ? "border-red-500 focus:ring-1 focus:ring-red-500"
                                     : "border-stone-200 focus:border-[var(--primary,#273316)] focus:ring-1 focus:ring-[var(--primary,#273316)]"
-                                }`}
+                                  }`}
                               />
                               {/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) && !errors.email && (
                                 <Check className="absolute right-4 top-3.5 h-5 w-5 text-emerald-600" />
@@ -440,7 +440,7 @@ Please get in touch with me soon!`;
                             <button
                               type="button"
                               onClick={() => setStep(1)}
-                              className="flex-1 h-12 rounded-full border border-stone-200 font-sans text-stone-600 hover:text-stone-950 hover:bg-stone-50 text-xs font-bold tracking-wider uppercase transition-colors"
+                              className="flex-1 h-12 rounded-full border border-stone-200 bg-white font-sans text-stone-600 hover:text-stone-950 hover:bg-stone-50 text-xs font-bold tracking-wider uppercase transition-colors"
                             >
                               &larr; BACK
                             </button>
