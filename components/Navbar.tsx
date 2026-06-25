@@ -82,53 +82,26 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8 font-medium">
-          <Link
-            href="/services"
-            className={`font-sans text-sm font-semibold tracking-wide transition-colors hover:text-[var(--secondary-container,#fda27b)] py-2 ${
-              isActive("/services")
-                ? "text-[var(--secondary-container,#fda27b)] border-b-2 border-[var(--secondary-container,#fda27b)]"
-                : "text-stone-200"
-            }`}
-          >
-            Services
-          </Link>
-          <Link
-            href="/our-work"
-            className={`font-sans text-sm font-semibold tracking-wide transition-colors hover:text-[var(--secondary-container,#fda27b)] py-2 ${
-              isActive("/our-work")
-                ? "text-[var(--secondary-container,#fda27b)] border-b-2 border-[var(--secondary-container,#fda27b)]"
-                : "text-stone-200"
-            }`}
-          >
-            Our Work
-          </Link>
-          <Link
-            href="/process"
-            className={`font-sans text-sm font-semibold tracking-wide transition-colors hover:text-[var(--secondary-container,#fda27b)] py-2 ${
-              isActive("/process")
-                ? "text-[var(--secondary-container,#fda27b)] border-b-2 border-[var(--secondary-container,#fda27b)]"
-                : "text-stone-200"
-            }`}
-          >
-            Process
-          </Link>
-          <Link
-            href="/about"
-            className={`font-sans text-sm font-semibold tracking-wide transition-colors hover:text-[var(--secondary-container,#fda27b)] py-2 ${
-              isActive("/about")
-                ? "text-[var(--secondary-container,#fda27b)] border-b-2 border-[var(--secondary-container,#fda27b)]"
-                : "text-stone-200"
-            }`}
-          >
-            About
-          </Link>
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`font-sans text-[13px] xl:text-sm font-semibold tracking-wide transition-colors hover:text-[var(--secondary-container,#fda27b)] py-2 ${
+                isActive(link.href)
+                  ? "text-[var(--secondary-container,#fda27b)] border-b-2 border-[var(--secondary-container,#fda27b)] animate-in fade-in duration-300"
+                  : "text-stone-200"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
         </nav>
 
         {/* Desktop Right CTA Elements */}
         <div className="hidden lg:flex items-center gap-6">
           <Link href="/contact">
-            <Button className="rounded-full bg-[var(--secondary,#914b2a)] hover:bg-[var(--secondary-container,#fda27b)] hover:text-[var(--on-secondary-container,#773718)] text-white text-xs font-bold tracking-wider uppercase px-6 py-3 transition-all shadow-md active:scale-95 duration-200">
+            <Button className="rounded-full bg-[var(--secondary,#914b2a)] hover:bg-[var(--secondary-container,#fda27b)] hover:text-[var(--on-secondary-container,#773718)] text-white text-xs font-bold tracking-wider uppercase px-5 py-2.5 transition-all shadow-md active:scale-95 duration-200">
               Book Free Consultation
             </Button>
           </Link>
