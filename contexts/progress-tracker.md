@@ -34,6 +34,7 @@
 - [x] Establish design tokens for distinct homepage section backgrounds (--surface-lavender for BudgetShowcase, --surface-sage for WhyChooseUs) and update design documents to officially enforce distinct creative backgrounds per section.
 - [x] Remove transparency from outline/secondary buttons on the homepage, explicitly defining solid white backgrounds for the "View All Services" button and modal "Back" button to improve contrast.
 - [x] Generate Google Search Console assets, including dynamic Next.js routes config sitemap (`app/sitemap.ts`), crawlers rule sheet (`app/robots.ts`), and verification metadata placeholders (`lib/seo.ts`).
+- [x] Fix production stylesheet color compilation by converting section background styles to Tailwind's robust arbitrary value classes (`bg-[var(--surface-lavender)]` and `bg-[var(--surface-sage)]`), resolving deployment display issues.
 
 ## In Progress
 

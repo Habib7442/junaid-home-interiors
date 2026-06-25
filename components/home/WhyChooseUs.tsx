@@ -53,7 +53,7 @@ const cardVariants: Variants = {
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 bg-surface-sage">
+    <section className="py-20 bg-[var(--surface-sage)]">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
 
         {/* Section Header */}

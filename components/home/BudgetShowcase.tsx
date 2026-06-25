@@ -141,7 +141,7 @@ Please get in touch with me soon!`;
   };
 
   return (
-    <section className="py-20 bg-surface-lavender border-b border-[var(--outline-variant,#c6c8bb)]/20">
+    <section className="py-20 bg-[var(--surface-lavender)] border-b border-[var(--outline-variant,#c6c8bb)]/20">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
 
         {/* Section Header */}
