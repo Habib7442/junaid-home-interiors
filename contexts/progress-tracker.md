@@ -27,6 +27,8 @@
 - [x] Integrate Framer Motion animations in the Hero section for staggered loading transitions and a polished editorial feel.
 - [x] Build and mount ServicesGrid component (`components/home/ServicesGrid.tsx`) showing the 8 core residential services with animations and Lucide icons.
 - [x] Build and mount WhyChooseUs component (`components/home/WhyChooseUs.tsx`) outlining the 4 primary differentiators (Timeline Guarantee, Factory Finishing, Next-Day Quotations, On-Site Designer Consultations) with clean entrance animations.
+- [x] Generate mock design assets using image generation tool, convert them to WebP format, and map them in the assets registry file (`lib/assets.ts`).
+- [x] Build and mount the `BudgetShowcase` component (`components/home/BudgetShowcase.tsx`) just below the Hero section, rendering horizontal scrollable 3D-tilt cards (2BHK, 3BHK, modular kitchens, bedrooms) and launching a custom 2-step WhatsApp modal inquiry form upon click.
 
 ## In Progress
 

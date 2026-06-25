@@ -10,6 +10,10 @@ export const assets = {
     heroBg: "/hero-bg.webp",
     ogImage: "/og-image.jpg",
     logo: "/logo.jpeg",
+    budget2bhk: "/budget-2bhk.webp",
+    budget3bhk: "/budget-3bhk.webp",
+    budgetKitchen: "/budget-kitchen.webp",
+    budgetBedroom: "/budget-bedroom.webp",
   },
 } as const;
 
