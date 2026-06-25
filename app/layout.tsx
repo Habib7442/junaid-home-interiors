@@ -28,8 +28,12 @@ export default function RootLayout({
     <html
       lang="en-IN"
       className={`${fraunces.variable} ${plusJakartaSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] selection:bg-[var(--primary)] selection:text-white">
+      <body 
+        className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] selection:bg-[var(--primary)] selection:text-white"
+        suppressHydrationWarning
+      >
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />

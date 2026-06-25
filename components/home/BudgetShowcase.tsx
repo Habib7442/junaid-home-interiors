@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { assets } from "@/lib/assets";
 import { X, Check, ArrowRight } from "lucide-react";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 
 // Card list data
 const budgetCards = [
@@ -33,115 +34,6 @@ const budgetCards = [
     description: "Cozy master bedroom with elegant bed and wood panels.",
   },
 ];
-
-// Reusable 3D Tilt Card Component
-function TiltCard({
-  space,
-  price,
-  image,
-  description,
-  onClick,
-}: {
-  space: string;
-  price: string;
-  image: string;
-  description: string;
-  onClick: () => void;
-}) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  
-  // Motion values for tracking cursor coordinates
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  // Transform coordinates into rotation degrees
-  const rotateX = useTransform(y, [-200, 200], [12, -12]);
-  const rotateY = useTransform(x, [-150, 150], [-12, 12]);
-
-  // Transform coordinates into glare gradient positions
-  const glareX = useTransform(x, [-150, 150], ["0%", "100%"]);
-  const glareY = useTransform(y, [-200, 200], ["0%", "100%"]);
-
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    const card = cardRef.current;
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-
-    // Mouse coordinates relative to card center
-    const mouseX = event.clientX - rect.left - width / 2;
-    const mouseY = event.clientY - rect.top - height / 2;
-
-    x.set(mouseX);
-    y.set(mouseY);
-  };
-
-  const handleMouseLeave = () => {
-    // Reset rotations smoothly
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-        perspective: 1000,
-      }}
-      onClick={onClick}
-      className="relative h-[360px] sm:h-[420px] w-[260px] sm:w-full shrink-0 rounded-[28px] overflow-hidden cursor-pointer shadow-[0_15px_35px_rgba(43,42,36,0.12)] group border border-[var(--outline-variant,#c6c8bb)]/20 snap-center bg-stone-900"
-    >
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0 select-none">
-        <Image
-          src={image}
-          alt={`${space} Interior Budget Design`}
-          fill
-          sizes="(max-width: 640px) 260px, (max-width: 1024px) 50vw, 25vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
-        {/* Soft shadow gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/40 z-10" />
-      </div>
-
-      {/* Dynamic 3D Glare Overlay */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none z-20 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-        style={{
-          background: `radial-gradient(circle at ${glareX} ${glareY}, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%)`,
-        }}
-      />
-
-      {/* Starting Price Tag (Top Left) */}
-      <div 
-        className="absolute top-4 left-4 z-20 bg-black/60 backdrop-blur-md text-white text-[11px] font-sans font-bold px-3 py-1.5 rounded-full border border-white/10 select-none transition-transform duration-300 group-hover:scale-105"
-        style={{ transform: "translateZ(30px)" }}
-      >
-        Starting at {price}
-      </div>
-
-      {/* Info Content (Bottom) */}
-      <div 
-        className="absolute bottom-6 left-6 right-6 z-20 flex flex-col justify-end text-white"
-        style={{ transform: "translateZ(40px)" }}
-      >
-        <h3 className="font-heading text-2xl font-semibold mb-1 group-hover:text-[var(--secondary-container,#fda27b)] transition-colors">
-          {space}
-        </h3>
-        <p className="font-sans text-xs text-stone-300 leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-300 max-h-0 group-hover:max-h-12 overflow-hidden">
-          {description}
-        </p>
-      </div>
-    </motion.div>
-  );
-}
 
 export default function BudgetShowcase() {
   const [isOpen, setIsOpen] = useState(false);
@@ -276,16 +168,53 @@ Please get in touch with me soon!`;
 
         {/* Scrollable Cards Container */}
         {/* Mobile: scrollable row, Desktop: 4 columns grid */}
-        <div className="flex overflow-x-auto gap-6 snap-x snap-mandatory scroll-smooth pb-8 -mx-6 px-6 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-4 lg:overflow-visible scrollbar-hide">
+        <div className="flex overflow-x-auto gap-6 snap-x snap-mandatory scroll-smooth pb-12 pt-4 -mx-6 px-6 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-4 lg:overflow-visible scrollbar-hide">
           {budgetCards.map((card) => (
-            <TiltCard
+            <div
               key={card.space}
-              space={card.space}
-              price={card.price}
-              image={card.image}
-              description={card.description}
               onClick={() => openModal(card.space)}
-            />
+              className="shrink-0 snap-center w-[270px] sm:w-full cursor-pointer"
+            >
+              <CardContainer containerClassName="py-0 w-full" className="w-full">
+                <CardBody className="bg-stone-900 relative group/card border border-[var(--outline-variant,#c6c8bb)]/25 hover:shadow-2xl hover:shadow-[var(--primary,#273316)]/[0.12] w-full h-[360px] sm:h-[420px] rounded-[28px] overflow-hidden flex flex-col justify-between p-6">
+                  
+                  {/* Background Image inside CardItem */}
+                  <CardItem translateZ="-20" className="absolute inset-0 z-0 w-full h-full select-none">
+                    <Image
+                      src={card.image}
+                      alt={`${card.space} Interior Budget Design`}
+                      fill
+                      sizes="(max-width: 640px) 260px, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-105"
+                    />
+                    {/* Dark shadow gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/45 z-10" />
+                  </CardItem>
+
+                  {/* Starting Price Tag (Top Left) */}
+                  <CardItem
+                    translateZ="40"
+                    className="absolute top-4 left-4 z-20 bg-black/60 backdrop-blur-md text-white text-[11px] font-sans font-bold px-3 py-1.5 rounded-full border border-white/10 select-none"
+                  >
+                    Starting at {card.price}
+                  </CardItem>
+
+                  {/* Title & Description (Bottom) */}
+                  <div className="absolute bottom-6 left-6 right-6 z-20 flex flex-col justify-end text-white">
+                    <CardItem translateZ="70" as="h3" className="font-heading text-2xl font-semibold mb-1 group-hover/card:text-[var(--secondary-container,#fda27b)] transition-colors">
+                      {card.space}
+                    </CardItem>
+                    <CardItem
+                      translateZ="40"
+                      as="p"
+                      className="font-sans text-xs text-stone-300 leading-relaxed opacity-0 group-hover/card:opacity-100 transition-all duration-350 max-h-0 group-hover/card:max-h-12 overflow-hidden"
+                    >
+                      {card.description}
+                    </CardItem>
+                  </div>
+                </CardBody>
+              </CardContainer>
+            </div>
           ))}
         </div>
 
