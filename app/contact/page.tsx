@@ -71,6 +71,30 @@ export default function ContactPage() {
 
           </div>
 
+          {/* Map Section */}
+          <div className="mt-16 md:mt-20">
+            <div className="mb-6">
+              <h2 className="font-heading text-2xl font-medium text-[var(--on-surface,#1c1c16)]">
+                Find Our Studio on Google Maps
+              </h2>
+              <p className="font-sans text-xs sm:text-sm text-[var(--on-surface-variant,#45483f)] mt-1.5">
+                Our main studio and factory modular showcase is located in Birbal Bazar, Meherpur, Silchar.
+              </p>
+            </div>
+            <div className="relative w-full h-[350px] md:h-[450px] rounded-[24px] md:rounded-[32px] overflow-hidden border border-[var(--outline-variant,#c6c8bb)]/30 bg-[var(--surface-container-low,#f8f3ea)] shadow-sm">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57953.616266917605!2d92.7270555496216!3d24.79199426669323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e4bd210f467df%3A0xb68d9ece60e05351!2sJUNAID%20HOME%20INTERIORS!5e0!3m2!1sen!2sin!4v1782399887282!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Junaid Home Interiors Office Location"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
     </>
