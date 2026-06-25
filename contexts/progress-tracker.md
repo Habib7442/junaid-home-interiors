@@ -35,6 +35,9 @@
 - [x] Remove transparency from outline/secondary buttons on the homepage, explicitly defining solid white backgrounds for the "View All Services" button and modal "Back" button to improve contrast.
 - [x] Generate Google Search Console assets, including dynamic Next.js routes config sitemap (`app/sitemap.ts`), crawlers rule sheet (`app/robots.ts`), and verification metadata placeholders (`lib/seo.ts`).
 - [x] Fix production stylesheet color compilation by converting section background styles to Tailwind's robust arbitrary value classes (`bg-[var(--surface-lavender)]` and `bg-[var(--surface-sage)]`), resolving deployment display issues.
+- [x] Batch convert 242 WhatsApp project images in `public/works` directory to WebP format at 80% quality, reducing bundle footprint and optimizing image loading performance.
+- [x] Build and mount the `FeaturedWork` portfolio component, removing category filters and card/lightbox text overlays (titles, addresses) to deliver a clean visual-first aesthetic.
+- [x] Create and integrate the `/contact` page with a consultation booking form, validation handlers, direct click-to-call, email channels, and local business JSON-LD schema markup.
 
 ## In Progress
 

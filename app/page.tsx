@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import BudgetShowcase from "@/components/home/BudgetShowcase";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
+import FeaturedWork from "@/components/home/FeaturedWork";
 
 export default function Home() {
   return (
@@ -17,6 +18,9 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <WhyChooseUs />
+
+      {/* Featured Work / Portfolio Grid */}
+      <FeaturedWork />
     </main>
   );
 }
