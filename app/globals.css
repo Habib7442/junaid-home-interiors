@@ -24,6 +24,10 @@
   --surface-container-high: #ece8de;
   --surface-container-highest: #e6e2d9;
 
+  /* Section backgrounds */
+  --surface-lavender: #f3f0fc;
+  --surface-sage: #ebf1e5;
+
   --on-surface: #1c1c16;
   --on-surface-variant: #45483f;
 
