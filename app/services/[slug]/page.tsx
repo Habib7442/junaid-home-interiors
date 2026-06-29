@@ -19,6 +19,8 @@ const slugToCategoryMap: Record<string, ProjectCategory[]> = {
   "bedroom-designs": ["bedroom-design"],
   "vanity-designs": ["vanity-unit"],
   "foyer-designs": ["foyer-unit"],
+  "tv-units": ["tv-unit"],
+  "pooja-designs": ["pooja-unit"],
 };
 
 export async function generateMetadata({

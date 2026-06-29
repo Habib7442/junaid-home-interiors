@@ -7,16 +7,13 @@ import { services, business } from "@/lib/seo";
 import {
   ChefHat,
   DoorOpen,
-  Lightbulb,
-  Layers,
-  Zap,
-  Hammer,
   Grid,
-  Paintbrush,
   ArrowRight,
   Bed,
   Sparkles,
   Key,
+  Tv,
+  Flower,
 } from "lucide-react";
 
 // Map service slugs to Lucide icons
@@ -26,12 +23,9 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "bedroom-designs": Bed,
   "vanity-designs": Sparkles,
   "foyer-designs": Key,
-  "lighting": Lightbulb,
-  "flooring": Layers,
-  "electrical-work": Zap,
-  "civil-work": Hammer,
+  "tv-units": Tv,
   "false-ceiling": Grid,
-  "wall-design-painting": Paintbrush,
+  "pooja-designs": Flower,
 };
 
 const containerVariants: Variants = {

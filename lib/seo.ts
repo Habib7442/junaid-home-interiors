@@ -118,32 +118,11 @@ export const services: ServiceItem[] = [
     keywords: ["foyer design Silchar", "entryway interior Silchar", "shoe rack partition Assam"],
   },
   {
-    slug: "lighting",
-    title: "Lighting",
+    slug: "tv-units",
+    title: "TV Units",
     description:
-      "Modern ambient, task, and accent lighting layouts including false ceiling LED profiles, strip lights, and decorative fixtures.",
-    keywords: ["home lighting design Silchar", "LED profiles design Silchar", "false ceiling lights Silchar"],
-  },
-  {
-    slug: "flooring",
-    title: "Flooring",
-    description:
-      "Premium wooden, vitrified tiles, marble, and vinyl flooring options installed with flawless precision.",
-    keywords: ["flooring installation Silchar", "wooden flooring Silchar", "tiles marble contractor Silchar"],
-  },
-  {
-    slug: "electrical-work",
-    title: "Electrical Work",
-    description:
-      "Complete house wiring, socket relocations, safety switches, and appliance installations managed end-to-end.",
-    keywords: ["house wiring electrician Silchar", "electrical contractor Silchar"],
-  },
-  {
-    slug: "civil-work",
-    title: "Civil Work",
-    description:
-      "Structural masonry, wall alterations, bathroom tiling, and plumbing alterations executed with expert quality.",
-    keywords: ["civil work contractor Silchar", "tiling plumbing work Silchar"],
+      "Modern TV unit designs featuring custom wall paneling, floating consoles, integrated LED lighting, and smart storage shelves.",
+    keywords: ["tv unit design Silchar", "media console Silchar", "tv wall paneling Assam"],
   },
   {
     slug: "false-ceiling",
@@ -153,11 +132,11 @@ export const services: ServiceItem[] = [
     keywords: ["false ceiling Silchar", "POP design Silchar", "gypsum ceiling Silchar"],
   },
   {
-    slug: "wall-design-painting",
-    title: "Wall Design & Painting",
+    slug: "pooja-designs",
+    title: "Pooja Designs",
     description:
-      "Flawless wall finishing services from putty applications to texture painting and washable royal shine paints.",
-    keywords: ["wall painting Silchar", "home painting service Silchar", "texture painting Silchar"],
+      "Elegant and serene Pooja room designs featuring custom wooden mandaps, CNC backlights, marble altars, and peaceful prayer units.",
+    keywords: ["pooja mandir Silchar", "pooja room design Silchar", "mandap carving Assam"],
   },
 ];
 
