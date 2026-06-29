@@ -16,6 +16,7 @@ import {
   ArrowRight,
   Bed,
   Sparkles,
+  Key,
 } from "lucide-react";
 
 // Map service slugs to Lucide icons
@@ -24,6 +25,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "modular-wardrobes": DoorOpen,
   "bedroom-designs": Bed,
   "vanity-designs": Sparkles,
+  "foyer-designs": Key,
   "lighting": Lightbulb,
   "flooring": Layers,
   "electrical-work": Zap,

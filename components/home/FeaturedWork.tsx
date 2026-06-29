@@ -39,6 +39,8 @@ const getCategoryRedirectUrl = (category: ProjectCategory): string => {
       return "/services/bedroom-designs";
     case "vanity-unit":
       return "/services/vanity-designs";
+    case "foyer-unit":
+      return "/services/foyer-designs";
     case "false-ceiling":
     case "pvc-ceiling":
       return "/services/false-ceiling";

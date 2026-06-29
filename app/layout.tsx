@@ -5,6 +5,7 @@ import { defaultMetadata } from "@/lib/seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/providers/SmoothScroll";
+import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -40,6 +41,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1 flex flex-col">{children}</main>
           <Footer />
+          <WhatsAppFloatingButton />
         </SmoothScroll>
       </body>
     </html>

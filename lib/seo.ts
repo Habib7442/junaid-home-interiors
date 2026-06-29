@@ -111,6 +111,13 @@ export const services: ServiceItem[] = [
     keywords: ["vanity design Silchar", "bathroom vanity Silchar", "dressing counter design Assam"],
   },
   {
+    slug: "foyer-designs",
+    title: "Foyer Designs",
+    description:
+      "Stunning entryway and foyer designs featuring custom shoe racks, accent seating, wooden partitions, and warm welcome lighting consoles.",
+    keywords: ["foyer design Silchar", "entryway interior Silchar", "shoe rack partition Assam"],
+  },
+  {
     slug: "lighting",
     title: "Lighting",
     description:
