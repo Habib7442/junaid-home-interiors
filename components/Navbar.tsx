@@ -47,6 +47,10 @@ export default function Navbar() {
     return pathname.startsWith(href);
   };
 
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   const isHomePage = pathname === "/";
   const showTransparent = isHomePage && !isScrolled;
 

@@ -97,6 +97,20 @@ export const services: ServiceItem[] = [
     keywords: ["wardrobe design Silchar", "sliding wardrobe Silchar", "bedroom wardrobe Assam"],
   },
   {
+    slug: "bedroom-designs",
+    title: "Bedroom Designs",
+    description:
+      "Luxurious and cozy bedroom interiors — custom cushioned headboards, modular wardrobes, dressing setups, and ambient lighting layouts.",
+    keywords: ["bedroom design Silchar", "master bedroom Silchar", "bedroom interior Assam"],
+  },
+  {
+    slug: "vanity-designs",
+    title: "Vanity Designs",
+    description:
+      "Premium bathroom vanity and dressing area designs featuring custom countertops, mirror backlights, and smart under-sink storage modules.",
+    keywords: ["vanity design Silchar", "bathroom vanity Silchar", "dressing counter design Assam"],
+  },
+  {
     slug: "lighting",
     title: "Lighting",
     description:

@@ -40,6 +40,7 @@
 - [x] Create and integrate the `/contact` page with a consultation booking form, validation handlers, direct click-to-call, email channels, and local business JSON-LD schema markup.
 - [x] Create and integrate the `/about` page with a complete brand narrative, statistics showcase, key pillars, and localized business JSON-LD schema tags for search crawl optimization.
 - [x] Update project categories schema in `lib/projects.ts` to support the client's detailed classification list (Modular Kitchen, TV Unit, False Ceiling, PVC False Ceiling, Pooja Unit, Foyer Unit, Vanity Unit, Bedroom, Wardrobe) and re-mapped mock database entries to match.
+- [x] Integrate Sanity CMS with custom grouped gallery schema to support bulk-uploads, and wire Next.js App Router SSR fetching to components/home/FeaturedWork.tsx using next.revalidate data caching.
 
 ## In Progress
 

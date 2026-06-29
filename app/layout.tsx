@@ -4,6 +4,7 @@ import "./globals.css";
 import { defaultMetadata } from "@/lib/seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/providers/SmoothScroll";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -28,15 +29,18 @@ export default function RootLayout({
     <html
       lang="en-IN"
       className={`${fraunces.variable} ${plusJakartaSans.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body 
         className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] selection:bg-[var(--primary)] selection:text-white"
         suppressHydrationWarning
       >
-        <Navbar />
-        <main className="flex-1 flex flex-col">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <Navbar />
+          <main className="flex-1 flex flex-col">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

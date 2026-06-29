@@ -3,11 +3,17 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { assets } from "@/lib/assets";
 import { business, telLink, whatsappLink, services } from "@/lib/seo";
 
 export default function Footer() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   return (
     <footer className="bg-[var(--primary,#273316)] text-white border-t border-[var(--primary-container,#3d4a2a)] pt-16 pb-8">
