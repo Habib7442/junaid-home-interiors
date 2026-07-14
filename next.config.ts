@@ -34,6 +34,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/about.php",
+        destination: "/about",
+        permanent: true,
+      },
+      {
         source: "/distemper.html",
         destination: "/services",
         permanent: true,
@@ -98,6 +103,54 @@ const nextConfig: NextConfig = {
           {
             type: "query",
             key: "slug",
+            value: "gypsum-ceiling",
+          },
+        ],
+        destination: "/services/false-ceiling",
+        permanent: true,
+      },
+      {
+        source: "/product.php",
+        has: [
+          {
+            type: "query",
+            key: "slug",
+            value: "paint-and-pop",
+          },
+        ],
+        destination: "/services/false-ceiling",
+        permanent: true,
+      },
+      {
+        source: "/product.php",
+        has: [
+          {
+            type: "query",
+            key: "slug",
+            value: "kitchen",
+          },
+        ],
+        destination: "/services/modular-kitchens",
+        permanent: true,
+      },
+      {
+        source: "/product.php",
+        has: [
+          {
+            type: "query",
+            key: "slug",
+            value: "bed",
+          },
+        ],
+        destination: "/services/bedroom-designs",
+        permanent: true,
+      },
+      {
+        source: "/product.php",
+        has: [
+          {
+            type: "query",
+            key: "slug",
             value: "shop-interior",
           },
         ],
@@ -110,7 +163,91 @@ const nextConfig: NextConfig = {
           {
             type: "query",
             key: "slug",
+            value: "office-interior",
+          },
+        ],
+        destination: "/our-work",
+        permanent: true,
+      },
+      {
+        source: "/product.php",
+        has: [
+          {
+            type: "query",
+            key: "slug",
+            value: "other-interior",
+          },
+        ],
+        destination: "/our-work",
+        permanent: true,
+      },
+      {
+        source: "/product.php",
+        has: [
+          {
+            type: "query",
+            key: "slug",
+            value: "home-interior",
+          },
+        ],
+        destination: "/our-work",
+        permanent: true,
+      },
+      {
+        source: "/product.php",
+        has: [
+          {
+            type: "query",
+            key: "slug",
+            value: "crockery-unit",
+          },
+        ],
+        destination: "/our-work",
+        permanent: true,
+      },
+      {
+        source: "/product.php",
+        has: [
+          {
+            type: "query",
+            key: "slug",
+            value: "wooden-flooring",
+          },
+        ],
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/product.php",
+        has: [
+          {
+            type: "query",
+            key: "slug",
+            value: "distemper",
+          },
+        ],
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/product.php",
+        has: [
+          {
+            type: "query",
+            key: "slug",
             value: "office-wiring",
+          },
+        ],
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/product.php",
+        has: [
+          {
+            type: "query",
+            key: "slug",
+            value: "home-wiring",
           },
         ],
         destination: "/services",
