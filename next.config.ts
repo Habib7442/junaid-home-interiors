@@ -12,6 +12,18 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // 0. Redirect non-www (canonicalize) to www
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "junaidhomeinteriors.com",
+          },
+        ],
+        destination: "https://www.junaidhomeinteriors.com/:path*",
+        permanent: true,
+      },
       // 1. Static HTML and PHP pages from old website
       {
         source: "/gallery.html",
