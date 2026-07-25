@@ -41,6 +41,7 @@
 - [x] Create and integrate the `/about` page with a complete brand narrative, statistics showcase, key pillars, and localized business JSON-LD schema tags for search crawl optimization.
 - [x] Update project categories schema in `lib/projects.ts` to support the client's detailed classification list (Modular Kitchen, TV Unit, False Ceiling, PVC False Ceiling, Pooja Unit, Foyer Unit, Vanity Unit, Bedroom, Wardrobe) and re-mapped mock database entries to match.
 - [x] Integrate Sanity CMS with custom grouped gallery schema to support bulk-uploads, and wire Next.js App Router SSR fetching to components/home/FeaturedWork.tsx using next.revalidate data caching.
+- [x] Fix desktop `NO_LCP` PageSpeed Insights error by removing the initial `opacity: 0` state on Hero's `cardVariants` (the consultation form Card, largest painted block in the desktop viewport) — same root cause as the earlier mobile H1 fix, since Framer Motion elements that start at zero opacity aren't counted as a valid LCP paint if the animation resolves after Lighthouse's trace window. Card now paints immediately and only animates a `y` transform on entrance.
 
 ## In Progress
 

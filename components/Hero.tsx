@@ -35,7 +35,7 @@ const itemVariants: Variants = {
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 25 },
+  hidden: { opacity: 1, y: 25 },
   visible: {
     opacity: 1,
     y: 0,
