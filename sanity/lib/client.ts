@@ -61,11 +61,16 @@ export async function getSanityProjects(): Promise<Project[]> {
                   .join(" ")
               : "Interior Design";
 
+            const rawUrl = img.asset.url;
+            const optimizedSanityUrl = rawUrl.includes("?") 
+              ? `${rawUrl}&auto=format&q=60` 
+              : `${rawUrl}?auto=format&q=60`;
+
             projectsList.push({
               id: img._key || Math.random().toString(36).substring(2, 9),
               title: img.title || fallbackTitle,
               category: category,
-              image: img.asset.url,
+              image: optimizedSanityUrl,
               locality: img.locality || "Silchar",
               description: img.description || "",
             });
