@@ -142,7 +142,7 @@ export default function Hero() {
           alt="Premium turnkey interior design mockup by Junaid Home Interiors"
           fill
           priority
-          quality={70}
+          quality={65}
           className="object-cover object-center"
           sizes="100vw"
         />

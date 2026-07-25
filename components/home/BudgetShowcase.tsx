@@ -183,7 +183,7 @@ Please get in touch with me soon!`;
                       src={card.image}
                       alt={`${card.space} Interior Budget Design`}
                       fill
-                      quality={70}
+                      quality={65}
                       sizes="(max-width: 640px) 260px, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-105"
                     />

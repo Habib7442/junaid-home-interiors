@@ -116,7 +116,7 @@ export default function FeaturedWork({ initialProjects }: FeaturedWorkProps) {
                           src={project.image}
                           alt={project.title}
                           fill
-                          quality={70}
+                          quality={65}
                           sizes="(max-width: 640px) 280px, 360px"
                           className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                         />
@@ -186,7 +186,7 @@ export default function FeaturedWork({ initialProjects }: FeaturedWorkProps) {
                   src={selectedProject.image}
                   alt={selectedProject.title}
                   fill
-                  quality={70}
+                  quality={65}
                   className="object-cover"
                   sizes="(max-width: 500px) 100vw, 500px"
                   priority

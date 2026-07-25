@@ -98,7 +98,7 @@ export default function ServiceGallery({
                     src={project.image}
                     alt={project.title}
                     fill
-                    quality={70}
+                    quality={65}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   />
@@ -176,7 +176,7 @@ export default function ServiceGallery({
                   src={selectedProject.image}
                   alt={selectedProject.title}
                   fill
-                  quality={70}
+                  quality={65}
                   className="object-cover"
                   sizes="(max-width: 500px) 100vw, 500px"
                   priority
