@@ -142,6 +142,7 @@ export default function Hero() {
           alt="Premium turnkey interior design mockup by Junaid Home Interiors"
           fill
           priority
+          quality={70}
           className="object-cover object-center"
           sizes="100vw"
         />
@@ -323,7 +324,7 @@ export default function Hero() {
                   <div className="space-y-3">
                     <Label htmlFor="phone">Phone Number</Label>
                     <div className="relative flex">
-                      <span className="absolute inset-y-0 left-0 flex items-center pl-4 text-sm text-[var(--on-surface-variant,#45483f)]/60 select-none">
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-4 text-sm text-[var(--on-surface,#1c1c16)] select-none">
                         +91
                       </span>
                       <Input
@@ -397,7 +398,7 @@ export default function Hero() {
                   </Button>
 
                   {/* Safety text */}
-                  <p className="text-[10px] text-center text-[var(--on-surface-variant,#45483f)]/70 mt-3 font-medium select-none">
+                  <p className="text-[10px] text-center text-[var(--on-surface-variant,#45483f)] mt-3 font-medium select-none">
                     🔒 Same-day response from our local designer.
                   </p>
                 </form>

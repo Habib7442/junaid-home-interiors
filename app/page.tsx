@@ -1,9 +1,21 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
-import BudgetShowcase from "@/components/home/BudgetShowcase";
-import ServicesGrid from "@/components/home/ServicesGrid";
-import WhyChooseUs from "@/components/home/WhyChooseUs";
 import FeaturedWork from "@/components/home/FeaturedWork";
 import { getSanityProjects } from "@/sanity/lib/client";
+
+// Dynamically import below-the-fold components to defer JS execution and reduce main-thread blocking
+const BudgetShowcase = dynamic(() => import("@/components/home/BudgetShowcase"), {
+  ssr: true,
+  loading: () => <div className="min-h-[400px] bg-stone-50/50 animate-pulse rounded-3xl" />,
+});
+
+const ServicesGrid = dynamic(() => import("@/components/home/ServicesGrid"), {
+  ssr: true,
+});
+
+const WhyChooseUs = dynamic(() => import("@/components/home/WhyChooseUs"), {
+  ssr: true,
+});
 
 export default async function Home() {
   const sanityProjects = await getSanityProjects();

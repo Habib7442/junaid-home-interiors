@@ -183,6 +183,7 @@ Please get in touch with me soon!`;
                       src={card.image}
                       alt={`${card.space} Interior Budget Design`}
                       fill
+                      quality={70}
                       sizes="(max-width: 640px) 260px, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-105"
                     />
@@ -338,7 +339,7 @@ Please get in touch with me soon!`;
                             </label>
                             <div className="relative flex">
                               {/* Fake Country Prefix */}
-                              <div className="h-12 border border-r-0 border-stone-200 bg-stone-100 rounded-l-[14px] px-3.5 flex items-center gap-1.5 text-stone-500 text-sm select-none">
+                              <div className="h-12 border border-r-0 border-stone-200 bg-stone-100 rounded-l-[14px] px-3.5 flex items-center gap-1.5 text-stone-700 text-sm select-none">
                                 <span className="text-base">🇮🇳</span>
                                 <span className="font-sans font-medium text-xs">+91</span>
                               </div>

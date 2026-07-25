@@ -189,7 +189,7 @@ Please get in touch to coordinate my appointment!`;
         <div className="space-y-1.5">
           <Label htmlFor="phone">Mobile Number (WhatsApp) *</Label>
           <div className="relative flex items-center">
-            <span className="absolute left-4 font-sans text-sm text-[var(--on-surface-variant,#45483f)]/50 select-none">
+            <span className="absolute left-4 font-sans text-sm text-[var(--on-surface,#1c1c16)] select-none">
               +91
             </span>
             <Input
@@ -270,7 +270,7 @@ Please get in touch to coordinate my appointment!`;
             placeholder="Describe your design vision, room count, or special material preferences..."
             value={formData.message}
             onChange={handleInputChange}
-            className="flex w-full rounded-[var(--radius-input,12px)] border border-[var(--outline-variant,#c6c8bb)] bg-[var(--surface-container-low,#f8f3ea)] px-4 py-3 text-sm text-[var(--on-surface,#1c1c16)] outline-none transition-all placeholder:text-[var(--on-surface-variant,#45483f)]/40 focus:border-[var(--primary,#273316)] focus:ring-2 focus:ring-[var(--primary,#273316)]/20 resize-none"
+            className="flex w-full rounded-[var(--radius-input,12px)] border border-[var(--outline-variant,#c6c8bb)] bg-[var(--surface-container-low,#f8f3ea)] px-4 py-3 text-sm text-[var(--on-surface,#1c1c16)] outline-none transition-all placeholder:text-[var(--on-surface-variant,#45483f)]/80 focus:border-[var(--primary,#273316)] focus:ring-2 focus:ring-[var(--primary,#273316)]/20 resize-none"
           />
         </div>
 

@@ -42,6 +42,11 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
+  --color-card: var(--surface-container-low);
+  --color-card-foreground: var(--on-surface);
+  --color-muted: var(--surface-container-high);
+  --color-muted-foreground: var(--on-surface-variant);
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--on-primary);
   --color-primary-container: var(--primary-container);
