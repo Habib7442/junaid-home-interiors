@@ -117,7 +117,7 @@ export default function FeaturedWork({ initialProjects }: FeaturedWorkProps) {
                           alt={project.title}
                           fill
                           quality={65}
-                          sizes="(max-width: 640px) 280px, 360px"
+                          sizes="(max-width: 640px) 240px, 360px"
                           className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                         />
 
