@@ -2,7 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    deviceSizes: [360, 480, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    // Fewer widths = fewer unique Vercel image transformations per source image
+    deviceSizes: [360, 640, 828, 1080, 1200, 1920],
+    qualities: [65, 75],
+    // Static assets rarely change; keep optimized copies cached for 31 days
+    // instead of re-transforming every 4 hours (Next 16 default)
+    minimumCacheTTL: 2678400,
     remotePatterns: [
       {
         protocol: "https",

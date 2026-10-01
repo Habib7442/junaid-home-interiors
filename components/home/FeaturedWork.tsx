@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { imageLoaderFor } from "@/sanity/lib/imageLoader";
 import Link from "next/link";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { X, MessageSquare, ZoomIn, ArrowRight } from "lucide-react";
@@ -114,6 +115,7 @@ export default function FeaturedWork({ initialProjects }: FeaturedWorkProps) {
                         {/* Project Image */}
                         <Image
                           src={project.image}
+                          loader={imageLoaderFor(project.image)}
                           alt={project.title}
                           fill
                           quality={65}
@@ -184,6 +186,7 @@ export default function FeaturedWork({ initialProjects }: FeaturedWorkProps) {
               <div className="relative w-full aspect-[4/3] select-none bg-black">
                 <Image
                   src={selectedProject.image}
+                  loader={imageLoaderFor(selectedProject.image)}
                   alt={selectedProject.title}
                   fill
                   quality={65}

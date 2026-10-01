@@ -44,6 +44,7 @@
 - [x] Fix desktop `NO_LCP` PageSpeed Insights error by removing the initial `opacity: 0` state on Hero's `cardVariants` (the consultation form Card, largest painted block in the desktop viewport) — same root cause as the earlier mobile H1 fix, since Framer Motion elements that start at zero opacity aren't counted as a valid LCP paint if the animation resolves after Lighthouse's trace window. Card now paints immediately and only animates a `y` transform on entrance.
 
 - [x] Fix Google Search favicon: declare the 192x192 PNG icon in `lib/seo.ts` metadata (Google requires a multiple of 48px; only 16/32px were declared) and fix broken icon paths, name, and theme colors in `public/favicons/site.webmanifest`.
+- [x] Cut Vercel Image Optimization usage: Sanity portfolio images now resize on Sanity's CDN via a per-image `loader` (`sanity/lib/imageLoader.ts`) instead of Vercel transformations; `next.config.ts` trims `deviceSizes`, allows `qualities: [65, 75]`, and raises `minimumCacheTTL` to 31 days for local static images.
 
 ## In Progress
 
